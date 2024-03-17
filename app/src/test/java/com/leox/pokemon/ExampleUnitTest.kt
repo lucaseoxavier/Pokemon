@@ -1,4 +1,4 @@
-package com.lucaseoxavier.pokemon
+package com.leox.pokemon
 
 import org.junit.Test
 

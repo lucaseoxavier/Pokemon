@@ -1,4 +1,4 @@
-package com.lucaseoxavier.pokemon.ui.theme
+package com.leox.pokemon.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

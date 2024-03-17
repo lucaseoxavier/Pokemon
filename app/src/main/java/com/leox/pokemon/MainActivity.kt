@@ -1,4 +1,4 @@
-package com.lucaseoxavier.pokemon
+package com.leox.pokemon
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,19 +10,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.lucaseoxavier.pokemon.ui.theme.PokemonTheme
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.leox.pokemon.ui.theme.PokemonTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
             PokemonTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
+                NavHost(navController = navController, startDestination = "route") {
+                    mainGraph()
                 }
             }
         }
@@ -32,8 +33,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+            text = "Hello $name!",
+            modifier = modifier
     )
 }
 
@@ -44,3 +45,10 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
+fun NavGraphBuilder.mainGraph() {
+    composable("route") {
+        Greeting(name = "hello")
+    }
+}
+
