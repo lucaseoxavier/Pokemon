@@ -22,33 +22,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             PokemonTheme {
-                NavHost(navController = navController, startDestination = "route") {
+                NavHost(navController = navController, startDestination = MainRoute.Root.route) {
                     mainGraph()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-            text = "Hello $name!",
-            modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PokemonTheme {
-        Greeting("Android")
-    }
-}
-
-fun NavGraphBuilder.mainGraph() {
-    composable("route") {
-        Greeting(name = "hello")
     }
 }
 
